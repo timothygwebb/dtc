@@ -21,7 +21,11 @@ function connect2base(){
 
 	$ressource_id = mysqli_connect("$conf_mysql_host", "$conf_mysql_login", "$conf_mysql_pass");
 	if($ressource_id == false)	return false;
+
 	return @mysqli_select_db($ressource_id, $conf_mysql_db)or die("Cannot select db: $conf_mysql_db");
+
+	return @mysqli_select_db($conf_mysql_db)or die("Cannot select db: $conf_mysql_db");
+
 }
 
 function createTableIfNotExists(){
