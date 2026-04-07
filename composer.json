@@ -7,8 +7,14 @@
     "homepage": "http://gplhost.com/about-us/our-gpl-software/dtc-domain-technologie-control.html",
     "authors": [
         {
-		 "name": "Timothy Webb",
-                "email": "timothy@webbhostingservices.com"
+            "name": "GPLHost",
+            "homepage": "http://gplhost.com/about-us/our-gpl-software/dtc-domain-technologie-control.html",
+            "role": "Original upstream author"
+        },
+        {
+            "name": "Timothy Webb",
+            "email": "timothy@webbhostingservices.com",
+            "role": "Maintainer"
         }
     ],
     "require": {
