@@ -45,16 +45,21 @@ git push
 
 How to build from source
 
-Install required dependences before package build.
+Install required dependencies before package build.
 
 Dependencies:
 
 Debian Users:
 
-Install dependencies as follows apt-get install or my preferred method aptitude install
+Install dependencies as follows:
+
+- build-essential
+- devscripts
+- debhelper
+- dpkg-dev
 
 apt-get update
-apt-get upgrade
+apt-get install build-essential devscripts debhelper dpkg-dev
 
 Then Debian Users:
 
@@ -69,29 +74,29 @@ Other Users:
 *directly, but dpkg-buildpackage that will call it.              *
 ******************************************************************
 
-The above process will build the following packages.
-dpkg-deb: building package 'dtc-postfix-dovecot' in '../dtc-postfix-dovecot_0.34.5-1_all.deb'.
-dpkg-deb: building package 'dtc-cyrus' in '../dtc-cyrus_0.34.5-1_all.deb'.
-dpkg-deb: building package 'dtc-stats-daemon' in '../dtc-stats-daemon_0.34.5-1_all.deb'.
-dpkg-deb: building package 'dtc-common' in '../dtc-common_0.34.5-1_all.deb'.
-dpkg-deb: building package 'dtc-autodeploy' in '../dtc-autodeploy_0.34.5-1_all.deb'.
-dpkg-deb: building package 'dtc-core' in '../dtc-core_0.34.5-1_all.deb'.
-dpkg-deb: building package 'dtc-toaster' in '../dtc-toaster_0.34.5-1_all.deb'.
-dpkg-deb: building package 'dtc-postfix-courier' in '../dtc-postfix-courier_0.34.5-1_all.deb'.
-dpkg-deb: building package 'dtc-dos-firewall' in '../dtc-dos-firewall_0.34.5-1_all.deb'.
+The above process will build the following packages:
 
-The packages will be in the directory above your chosen directory. 
+- dtc-postfix-dovecot
+- dtc-cyrus
+- dtc-stats-daemon
+- dtc-common
+- dtc-autodeploy
+- dtc-core
+- dtc-toaster
+- dtc-postfix-courier
+- dtc-dos-firewall
 
-In this case it would be /usr/share
+The generated `.deb` packages will be placed in the parent directory of your chosen build directory.
 
-cd to /usr/share and execute the following.
+Change to the parent directory that contains the built packages:
 
+cd /usr/share
 
+Install the desired package or packages from the list above. For example:
 
-or install the desired packages from the list above dtc-common will require you to execute the following after the install.
-dpkg -i --force all dtc*.deb
+dpkg -i dtc-common_0.34.5-1_all.deb
 
-then execute the following
+If you install `dtc-common`, run the installer afterward:
 
 How to install.
 /usr/share/dtc/admin/install/install
