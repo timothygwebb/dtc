@@ -14,7 +14,7 @@ cd /usr/share
 
 git clone https://github.com/timothygwebb/dtc.git
 
-Install required dependences before package build.
+Install required dependencies before package build.
 
 Dependencies:
 
@@ -43,27 +43,6 @@ git commit
 
 git push
 
-<<<<<<< HEAD
-=======
-How to build from source
-
-Install required dependences before package build.
-
-Dependencies:
-
-Debian Users:
-
-Install dependencies as follows apt-get install or my preferred method aptitude install
-
-default-mysql-client default-mysql-server galera-3 altermime amavisd-new clamav clamav-daemon clamav-freshclam courier-authlib expect libberkeleydb-perl 
-libclamav9 libconvert-binhex-perl libconvert-tnef-perl libconvert-uulib-perl libcourier-unicode4 libdbd-mysql-perl libio-multiplex-perl libjemalloc1
-libmime-tools-perl libnet-cidr-perl libnet-server-perl libtfm1 libunix-syslog-perl maildrop mariadb-client-10.1 mariadb-client-core-10.1  
-mariadb-server-10.1 mariadb-server-core-10.1 mysql-server pax ripole tcl-expect 
-
-apt-get update
-apt-get upgrade
-
->>>>>>> 1eb33a04ceb6e42b77f5a98c3623c0b56d9cef7a
 Then Debian Users:
 
 dpkg-buildpackage in /usr/share/dtc directory after clone.
