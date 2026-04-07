@@ -20,14 +20,22 @@ Dependencies:
 
 Debian Users:
 
-Install dependencies as follows apt-get install or my preferred method aptitude install
+Install dependencies as follows (Debian 10 Buster / 11 Bullseye):
 
-default-mysql-client default-mysql-server galera-3 altermime amavisd-new clamav clamav-daemon clamav-freshclam courier-authlib expect libberkeleydb-perl 
-libclamav9 libconvert-binhex-perl libconvert-tnef-perl libconvert-uulib-perl libcourier-unicode4 libdbd-mysql-perl libio-multiplex-perl libjemalloc1 
-libmime-tools-perl libnet-cidr-perl libnet-server-perl libtfm1 libunix-syslog-perl maildrop mariadb-client-10.1 mariadb-client-core-10.1 
-mariadb-server-10.1 mariadb-server-core-10.1 mysql-server pax ripole tcl-expect composer jsonlint php-composer-ca-bundle php-composer-semver 
-php-composer-spdx-licenses php-composer-xdebug-handler php-json-schema php-symfony-console php-symfony-filesystem php-symfony-finder 
-php-symfony-polyfill-php80 php-symfony-process 
+```bash
+apt-get install \
+  default-mysql-client default-mysql-server galera-3 altermime amavisd-new \
+  clamav clamav-daemon clamav-freshclam courier-authlib expect \
+  libberkeleydb-perl libclamav9 libconvert-binhex-perl libconvert-tnef-perl \
+  libconvert-uulib-perl libcourier-unicode4 libdbd-mysql-perl \
+  libio-multiplex-perl libjemalloc1 libmime-tools-perl libnet-cidr-perl \
+  libnet-server-perl libtfm1 libunix-syslog-perl maildrop \
+  mariadb-client mariadb-server mysql-server pax ripole tcl-expect \
+  composer jsonlint php-composer-ca-bundle php-composer-semver \
+  php-composer-spdx-licenses php-composer-xdebug-handler php-json-schema \
+  php-symfony-console php-symfony-filesystem php-symfony-finder \
+  php-symfony-polyfill-php80 php-symfony-process
+```
 
 apt-get update or aptitude update
 
@@ -53,13 +61,26 @@ Debian Users:
 
 Install dependencies as follows:
 
-- build-essential
-- devscripts
-- debhelper
-- dpkg-dev
-
-apt-get update
+```bash
 apt-get install build-essential devscripts debhelper dpkg-dev
+```
+
+Also install the runtime dependencies listed above, then build:
+
+```bash
+apt-get install \
+  default-mysql-client default-mysql-server galera-3 altermime amavisd-new \
+  clamav clamav-daemon clamav-freshclam courier-authlib expect \
+  libberkeleydb-perl libclamav9 libconvert-binhex-perl libconvert-tnef-perl \
+  libconvert-uulib-perl libcourier-unicode4 libdbd-mysql-perl \
+  libio-multiplex-perl libjemalloc1 libmime-tools-perl libnet-cidr-perl \
+  libnet-server-perl libtfm1 libunix-syslog-perl maildrop \
+  mariadb-client mariadb-server mysql-server pax ripole tcl-expect \
+  composer jsonlint php-composer-ca-bundle php-composer-semver \
+  php-composer-spdx-licenses php-composer-xdebug-handler php-json-schema \
+  php-symfony-console php-symfony-filesystem php-symfony-finder \
+  php-symfony-polyfill-php80 php-symfony-process
+```
 
 Then Debian Users:
 

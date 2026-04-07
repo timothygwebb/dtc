@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'timothygwebb/dtc',
-        'pretty_version' => 'dev-timothygwebb-patch-2',
-        'version' => 'dev-timothygwebb-patch-2',
-        'reference' => 'ca4c9e916f826f32cd6bfcb145d60602479222e9',
+        'pretty_version' => 'dev-timothygwebb-patch-8',
+        'version' => 'dev-timothygwebb-patch-8',
+        'reference' => '1d45cbf15dbf377228b5d6a87c6cefb560295272',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -83,9 +83,9 @@
             'dev_requirement' => false,
         ),
         'timothygwebb/dtc' => array(
-            'pretty_version' => 'dev-timothygwebb-patch-2',
-            'version' => 'dev-timothygwebb-patch-2',
-            'reference' => 'ca4c9e916f826f32cd6bfcb145d60602479222e9',
+            'pretty_version' => 'dev-timothygwebb-patch-8',
+            'version' => 'dev-timothygwebb-patch-8',
+            'reference' => '1d45cbf15dbf377228b5d6a87c6cefb560295272',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
