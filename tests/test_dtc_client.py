@@ -114,3 +114,72 @@ class TestDeleteDomain:
         ):
             with pytest.raises(requests.ConnectionError):
                 client.delete_domain("unreachable.com")
+
+
+# ---------------------------------------------------------------------------
+# Standalone test functions
+# ---------------------------------------------------------------------------
+
+
+def test_client_default_timeout() -> None:
+    c = DTCClient(base_url="http://dtc.test", api_key="k")
+    assert c.timeout == 30
+
+
+def test_client_custom_timeout() -> None:
+    c = DTCClient(base_url="http://dtc.test", api_key="k", timeout=60)
+    assert c.timeout == 60
+
+
+def test_client_no_api_key_no_auth_header(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.delenv("DTC_API_KEY", raising=False)
+    c = DTCClient(base_url="http://dtc.test")
+    assert "Authorization" not in c._session.headers
+
+
+def test_get_domain_url_includes_domain_name() -> None:
+    c = DTCClient(base_url="http://dtc.test", api_key="k")
+    mock_response = MagicMock()
+    mock_response.json.return_value = {"name": "example.com"}
+    mock_response.raise_for_status.return_value = None
+
+    with patch.object(c._session, "get", return_value=mock_response) as mock_get:
+        c.get_domain("example.com")
+
+    called_url = mock_get.call_args[0][0]
+    assert called_url == "http://dtc.test/api/domains/example.com"
+
+
+def test_create_domain_url() -> None:
+    c = DTCClient(base_url="http://dtc.test", api_key="k")
+    mock_response = MagicMock()
+    mock_response.json.return_value = {"name": "new.com"}
+    mock_response.raise_for_status.return_value = None
+
+    with patch.object(c._session, "post", return_value=mock_response) as mock_post:
+        c.create_domain("new.com")
+
+    called_url = mock_post.call_args[0][0]
+    assert called_url == "http://dtc.test/api/domains"
+
+
+def test_delete_domain_url_includes_domain_name() -> None:
+    c = DTCClient(base_url="http://dtc.test", api_key="k")
+    mock_response = MagicMock()
+    mock_response.raise_for_status.return_value = None
+
+    with patch.object(c._session, "delete", return_value=mock_response) as mock_del:
+        c.delete_domain("old.com")
+
+    called_url = mock_del.call_args[0][0]
+    assert called_url == "http://dtc.test/api/domains/old.com"
+
+
+def test_get_domains_raises_http_error_with_message() -> None:
+    c = DTCClient(base_url="http://dtc.test", api_key="k")
+    mock_response = MagicMock()
+    mock_response.raise_for_status.side_effect = requests.HTTPError("500")
+
+    with patch.object(c._session, "get", return_value=mock_response):
+        with pytest.raises(requests.HTTPError, match="GET /api/domains failed"):
+            c.get_domains()

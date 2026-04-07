@@ -162,3 +162,91 @@ class TestModuleLevelRemoveDomain:
         result = remove_domain(mock_client, "protected.com")
         assert result["ok"] is False
         assert result["operation"] == "remove_domain"
+
+
+# ---------------------------------------------------------------------------
+# Standalone test functions
+# ---------------------------------------------------------------------------
+
+
+def test_domain_agent_list_domains_ok() -> None:
+    client = MagicMock(spec=DTCClient)
+    client.get_domains.return_value = [{"name": "a.com"}]
+    agent = DomainAgent(client)
+    result = agent.list_domains()
+    assert result["ok"] is True
+    assert result["domains"] == [{"name": "a.com"}]
+
+
+def test_domain_agent_list_domains_error() -> None:
+    client = MagicMock(spec=DTCClient)
+    client.get_domains.side_effect = RuntimeError("fail")
+    agent = DomainAgent(client)
+    result = agent.list_domains()
+    assert result["ok"] is False
+    assert result["operation"] == "list_domains"
+    assert "fail" in result["error"]
+
+
+def test_domain_agent_describe_domain_ok() -> None:
+    client = MagicMock(spec=DTCClient)
+    client.get_domain.return_value = {"name": "b.com", "status": "active"}
+    agent = DomainAgent(client)
+    result = agent.describe_domain("b.com")
+    assert result["name"] == "b.com"
+
+
+def test_domain_agent_describe_domain_error() -> None:
+    client = MagicMock(spec=DTCClient)
+    client.get_domain.side_effect = ValueError("missing")
+    agent = DomainAgent(client)
+    result = agent.describe_domain("b.com")
+    assert result["ok"] is False
+    assert result["operation"] == "describe_domain"
+
+
+def test_domain_agent_provision_domain_ok() -> None:
+    client = MagicMock(spec=DTCClient)
+    client.create_domain.return_value = {"name": "c.com"}
+    agent = DomainAgent(client)
+    result = agent.provision_domain("c.com")
+    assert result["name"] == "c.com"
+
+
+def test_domain_agent_provision_domain_with_options() -> None:
+    client = MagicMock(spec=DTCClient)
+    client.create_domain.return_value = {"name": "c.com"}
+    agent = DomainAgent(client)
+    agent.provision_domain("c.com", options={"quota": 10})
+    client.create_domain.assert_called_once_with("c.com", quota=10)
+
+
+def test_domain_agent_provision_domain_error() -> None:
+    client = MagicMock(spec=DTCClient)
+    client.create_domain.side_effect = Exception("quota exceeded")
+    agent = DomainAgent(client)
+    result = agent.provision_domain("c.com")
+    assert result["ok"] is False
+    assert "quota exceeded" in result["error"]
+
+
+def test_domain_agent_remove_domain_ok() -> None:
+    client = MagicMock(spec=DTCClient)
+    client.delete_domain.return_value = True
+    agent = DomainAgent(client)
+    result = agent.remove_domain("d.com")
+    assert result == {"ok": True, "domain": "d.com"}
+
+
+def test_domain_agent_remove_domain_error() -> None:
+    client = MagicMock(spec=DTCClient)
+    client.delete_domain.side_effect = PermissionError("denied")
+    agent = DomainAgent(client)
+    result = agent.remove_domain("d.com")
+    assert result["ok"] is False
+    assert result["operation"] == "remove_domain"
+
+
+def test_fallback_error_structure() -> None:
+    result = DomainAgent._fallback_error("test_op", ValueError("oops"))
+    assert result == {"ok": False, "operation": "test_op", "error": "oops"}
