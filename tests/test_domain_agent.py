@@ -4,7 +4,7 @@ Tests for the DomainAgent in agents/domain_agent.py.
 
 from __future__ import annotations
 
-from unittest.mock import MagicMock, patch
+from unittest.mock import MagicMock
 
 import pytest
 

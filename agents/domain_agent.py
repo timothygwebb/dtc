@@ -215,6 +215,7 @@ def remove_domain(client: DTCClient, domain: str) -> Dict[str, Any]:
     Returns
     -------
     dict
-        Success payload ``{"ok": True}`` or an error payload on failure.
+        Success payload ``{"ok": True, "domain": domain}`` or an error
+        payload on failure.
     """
     return DomainAgent(client).remove_domain(domain)
