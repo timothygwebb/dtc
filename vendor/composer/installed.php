@@ -3,7 +3,7 @@
         'name' => 'timothygwebb/dtc',
         'pretty_version' => 'dev-copilot/update-documentation-relevance',
         'version' => 'dev-copilot/update-documentation-relevance',
-        'reference' => '4c046ca48fdbdc59bcbae10c7b249d2c02fb0022',
+        'reference' => '30b1cb13c8a90d8668a1017e2a0167470d9bf3de',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -85,7 +85,7 @@
         'timothygwebb/dtc' => array(
             'pretty_version' => 'dev-copilot/update-documentation-relevance',
             'version' => 'dev-copilot/update-documentation-relevance',
-            'reference' => '4c046ca48fdbdc59bcbae10c7b249d2c02fb0022',
+            'reference' => '30b1cb13c8a90d8668a1017e2a0167470d9bf3de',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
