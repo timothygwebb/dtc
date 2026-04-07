@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'timothygwebb/dtc',
-        'pretty_version' => 'dev-timothygwebb-patch-8',
-        'version' => 'dev-timothygwebb-patch-8',
-        'reference' => '1d45cbf15dbf377228b5d6a87c6cefb560295272',
+        'pretty_version' => 'dev-copilot/evaluate-agentic-ai-readiness',
+        'version' => 'dev-copilot/evaluate-agentic-ai-readiness',
+        'reference' => 'e3c41d5beb81fab757992469714f363ab6fd0130',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -83,9 +83,9 @@
             'dev_requirement' => false,
         ),
         'timothygwebb/dtc' => array(
-            'pretty_version' => 'dev-timothygwebb-patch-8',
-            'version' => 'dev-timothygwebb-patch-8',
-            'reference' => '1d45cbf15dbf377228b5d6a87c6cefb560295272',
+            'pretty_version' => 'dev-copilot/evaluate-agentic-ai-readiness',
+            'version' => 'dev-copilot/evaluate-agentic-ai-readiness',
+            'reference' => 'e3c41d5beb81fab757992469714f363ab6fd0130',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
