@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'timothygwebb/dtc',
-        'pretty_version' => 'dev-copilot/evaluate-agentic-ai-readiness',
-        'version' => 'dev-copilot/evaluate-agentic-ai-readiness',
-        'reference' => '87b75f8aa5647a2d6c051db8d062bdceaab2a89c',
+        'pretty_version' => 'dev-copilot/update-documentation-relevance',
+        'version' => 'dev-copilot/update-documentation-relevance',
+        'reference' => '30b1cb13c8a90d8668a1017e2a0167470d9bf3de',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -83,9 +83,9 @@
             'dev_requirement' => false,
         ),
         'timothygwebb/dtc' => array(
-            'pretty_version' => 'dev-copilot/evaluate-agentic-ai-readiness',
-            'version' => 'dev-copilot/evaluate-agentic-ai-readiness',
-            'reference' => '87b75f8aa5647a2d6c051db8d062bdceaab2a89c',
+            'pretty_version' => 'dev-copilot/update-documentation-relevance',
+            'version' => 'dev-copilot/update-documentation-relevance',
+            'reference' => '30b1cb13c8a90d8668a1017e2a0167470d9bf3de',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

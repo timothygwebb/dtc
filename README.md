@@ -1,18 +1,73 @@
 # dtc
 Domain Technologie Control
 
-The documentation for this project is compiled and installed during installation.
+DTC is a web-based hosting control panel that manages virtual hosts, DNS zones, mail services, databases, FTP accounts, and SSL certificates. It also ships a Python agentic CLI for programmatic domain management.
+
+The full documentation for this project is compiled and installed during installation.
 
 If you need to view it for assistance during or before installation it can be found at the link below.
 
 https://github.com/timothygwebb/dtc/blob/master/doc/html/en/2.html
 
-How to contribute.
-Clone the repository or fork it to /usr/share
+Extended documentation (installation guide, configuration reference, and API reference) is available in the [`docs/`](docs/) directory.
 
+## Python Agentic CLI
+
+The repository includes a Python CLI (`cli.py`) that communicates with a running DTC instance via its REST API.
+
+### Setup
+
+Install Python dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+### Configuration
+
+| Environment variable | Description | Default |
+|----------------------|-------------|---------|
+| `DTC_BASE_URL` | Base URL of the DTC instance | `http://localhost` |
+| `DTC_API_KEY` | API key or session token | *(empty)* |
+
+Variables can also be provided via the `--base-url` and `--api-key` flags.
+
+### Usage
+
+```bash
+python cli.py --help
+
+# List all domains
+python cli.py --base-url https://dtc.example.com domains list
+
+# Describe a specific domain
+python cli.py --base-url https://dtc.example.com domains describe example.com
+
+# Provision (create) a new domain
+python cli.py --base-url https://dtc.example.com domains provision example.com
+
+# Remove a domain
+python cli.py --base-url https://dtc.example.com domains remove example.com
+```
+
+### Running Tests
+
+```bash
+pytest
+```
+
+---
+
+## How to contribute
+
+Clone the repository or fork it to `/usr/share`:
+
+```bash
 cd /usr/share
-
 git clone https://github.com/timothygwebb/dtc.git
+```
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the full contribution workflow.
 
 Install required dependencies before package build.
 
