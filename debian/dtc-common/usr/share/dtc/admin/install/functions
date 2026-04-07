@@ -987,7 +987,7 @@ setupDTCDatabase () {
 	$MYSQL -u$conf_mysql_login -h$conf_mysql_host -D$conf_mysql_db --execute="UPDATE `mysql`.`user` SET Password=PASSWORD('"${MYSQL_DTCDAEMONS_PASS}"') WHERE User='dtcdaemons'"
 
 	# grant Select,Insert,Update,Delete,References,Index to ftp_access
-	$MYSQL -u$conf_mysql_login -h$conf_mysql_host -D$conf_mysql_db --execute="INSERT IGNORE INTO `mysql`.`tables_priv` (Host, Db, User, Table_name, Grantor, Timestamp, Table_priv, Column_priv) VALUES ('%', '"$conf_mysql_db"', 'dtcdaemons', 'ftp_access', '', (CURRENT_TIMESTAMP), 'Select','Insert','Update','Delete','References','Index','Select')"
+	$MYSQL -u$conf_mysql_login -h$conf_mysql_host -D$conf_mysql_db --execute="INSERT IGNORE INTO `mysql`.`tables_priv` (Host, Db, User, Table_name, Grantor, Timestamp, Table_priv, Column_priv) VALUES ('%', '$conf_mysql_db', 'dtcdaemons', 'ftp_access', '', CURRENT_TIMESTAMP, 'Select,Insert,Update,Delete,References,Index', 'Select');"
 	$MYSQL -u$conf_mysql_login -h$conf_mysql_host -D$conf_mysql_db --execute="INSERT IGNORE INTO `mysql`.`tables_priv` (Host, Db, User, Table_name, Grantor, Timestamp, Table_priv, Column_priv) VALUES ('localhost', '"$conf_mysql_db"', 'dtcdaemons', 'ftp_access', '', CURRENT_TIMESTAMP, 'Select,Insert,Update,Delete,References,Index', Select)"
 
 	# grant Select,Insert,Update,Delete,References,Index to groups
