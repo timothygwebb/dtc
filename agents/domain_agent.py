@@ -133,3 +133,89 @@ class DomainAgent:
             "operation": operation,
             "error": str(exc),
         }
+
+
+# ---------------------------------------------------------------------------
+# Module-level public functions
+# ---------------------------------------------------------------------------
+# These convenience wrappers allow callers to invoke agent operations without
+# explicitly managing a DomainAgent instance, which is useful for one-shot
+# calls from orchestration frameworks and tool-calling LLMs.
+
+
+def list_domains(client: DTCClient) -> Dict[str, Any]:
+    """List all domains managed by the DTC instance.
+
+    Parameters
+    ----------
+    client:
+        An initialised :class:`core.DTCClient` instance.
+
+    Returns
+    -------
+    dict
+        ``{"ok": True, "domains": [...]}`` on success, or
+        ``{"ok": False, "operation": ..., "error": ...}`` on failure.
+    """
+    return DomainAgent(client).list_domains()
+
+
+def describe_domain(client: DTCClient, domain: str) -> Dict[str, Any]:
+    """Return detailed information about a specific domain.
+
+    Parameters
+    ----------
+    client:
+        An initialised :class:`core.DTCClient` instance.
+    domain:
+        Fully-qualified domain name, e.g. ``example.com``.
+
+    Returns
+    -------
+    dict
+        Domain details or an error payload on failure.
+    """
+    return DomainAgent(client).describe_domain(domain)
+
+
+def provision_domain(
+    client: DTCClient,
+    domain: str,
+    options: Optional[Dict[str, Any]] = None,
+) -> Dict[str, Any]:
+    """Create and configure a new domain.
+
+    Parameters
+    ----------
+    client:
+        An initialised :class:`core.DTCClient` instance.
+    domain:
+        Fully-qualified domain name.
+    options:
+        Optional configuration overrides passed to the DTC API.
+
+    Returns
+    -------
+    dict
+        Created domain record or an error payload on failure.
+    """
+    return DomainAgent(client).provision_domain(domain, options=options)
+
+
+def remove_domain(client: DTCClient, domain: str) -> Dict[str, Any]:
+    """Remove a domain from the DTC instance.
+
+    Parameters
+    ----------
+    client:
+        An initialised :class:`core.DTCClient` instance.
+    domain:
+        Fully-qualified domain name.
+
+    Returns
+    -------
+    dict
+        Success payload ``{"ok": True, "domain": domain}`` or an error
+        payload on failure.
+    """
+    return DomainAgent(client).remove_domain(domain)
