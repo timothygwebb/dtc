@@ -24,8 +24,6 @@ function connect2base(){
 
 	return @mysqli_select_db($ressource_id, $conf_mysql_db)or die("Cannot select db: $conf_mysql_db");
 
-	return @mysqli_select_db($conf_mysql_db)or die("Cannot select db: $conf_mysql_db");
-
 }
 
 function createTableIfNotExists(){
