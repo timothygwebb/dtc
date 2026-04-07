@@ -75,7 +75,7 @@ When `DTC_API_KEY` (or `--api-key`) is set, every request includes an `Authoriza
 
 ### HTTP Timeout
 
-The default HTTP timeout is **30 seconds**. It can be adjusted programmatically by passing `timeout=<seconds>` when constructing a `DTCClient` instance directly:
+The default HTTP timeout is **30 seconds**. It can be adjusted programmatically by passing `timeout=<seconds>` when constructing a `DTCClient` instance directly (omitting it keeps the 30-second default):
 
 ```python
 from core.dtc_client import DTCClient
@@ -83,6 +83,6 @@ from core.dtc_client import DTCClient
 client = DTCClient(
     base_url="https://dtc.example.com",
     api_key="your-api-key",
-    timeout=60,
+    timeout=60,  # overrides the default 30-second timeout
 )
 ```

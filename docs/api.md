@@ -104,7 +104,7 @@ result = agent.list_domains()
 
 ```python
 result = agent.describe_domain("example.com")
-# Success:  {domain details dict}
+# Success:  {"name": "example.com", "status": "active", ...}
 # Failure:  {"ok": False, "operation": "describe_domain", "error": "..."}
 ```
 
@@ -126,10 +126,15 @@ result = agent.remove_domain("example.com")
 
 ### Module-level convenience functions
 
-The same operations are also available as module-level functions that accept a `DTCClient` directly:
+The same operations are also available as module-level functions that accept a `DTCClient` directly, without needing to instantiate `DomainAgent` explicitly:
 
 ```python
 from agents.domain_agent import list_domains, describe_domain, provision_domain, remove_domain
+
+result = list_domains(client)
+result = describe_domain(client, "example.com")
+result = provision_domain(client, "newsite.com", options={"plan": "basic"})
+result = remove_domain(client, "oldsite.com")
 ```
 
 ---
