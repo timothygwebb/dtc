@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'timothygwebb/dtc',
-        'pretty_version' => 'dev-copilot/update-documentation-relevance',
-        'version' => 'dev-copilot/update-documentation-relevance',
-        'reference' => '30b1cb13c8a90d8668a1017e2a0167470d9bf3de',
+        'pretty_version' => 'dev-copilot/add-test-coverage',
+        'version' => 'dev-copilot/add-test-coverage',
+        'reference' => 'e3147784e1d6f5894d1fb9e1802f1cc1beda7948',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -83,9 +83,9 @@
             'dev_requirement' => false,
         ),
         'timothygwebb/dtc' => array(
-            'pretty_version' => 'dev-copilot/update-documentation-relevance',
-            'version' => 'dev-copilot/update-documentation-relevance',
-            'reference' => '30b1cb13c8a90d8668a1017e2a0167470d9bf3de',
+            'pretty_version' => 'dev-copilot/add-test-coverage',
+            'version' => 'dev-copilot/add-test-coverage',
+            'reference' => 'e3147784e1d6f5894d1fb9e1802f1cc1beda7948',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
