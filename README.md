@@ -44,6 +44,7 @@ git commit
 git push
 
 <<<<<<< HEAD
+=======
 How to build from source
 
 Install required dependences before package build.
@@ -62,8 +63,7 @@ mariadb-server-10.1 mariadb-server-core-10.1 mysql-server pax ripole tcl-expect
 apt-get update
 apt-get upgrade
 
-=======
->>>>>>> origin/master
+>>>>>>> 1eb33a04ceb6e42b77f5a98c3623c0b56d9cef7a
 Then Debian Users:
 
 dpkg-buildpackage in /usr/share/dtc directory after clone.
