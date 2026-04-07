@@ -3,7 +3,7 @@
         'name' => 'timothygwebb/dtc',
         'pretty_version' => 'dev-timothygwebb-patch-8',
         'version' => 'dev-timothygwebb-patch-8',
-        'reference' => 'fc704fede2c1ede1dc3a14c089289cde3348b84c',
+        'reference' => '1d45cbf15dbf377228b5d6a87c6cefb560295272',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -85,7 +85,7 @@
         'timothygwebb/dtc' => array(
             'pretty_version' => 'dev-timothygwebb-patch-8',
             'version' => 'dev-timothygwebb-patch-8',
-            'reference' => 'fc704fede2c1ede1dc3a14c089289cde3348b84c',
+            'reference' => '1d45cbf15dbf377228b5d6a87c6cefb560295272',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
