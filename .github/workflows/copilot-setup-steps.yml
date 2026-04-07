@@ -29,10 +29,12 @@ jobs:
           php-version: '8.2'
           tools: composer:v2
 
-      - name: Cache Composer packages
+      - name: Cache Composer download cache
         uses: actions/cache@v4
         with:
-          path: vendor
+          path: |
+            ~/.cache/composer
+            ~/.composer/cache
           key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-php-
