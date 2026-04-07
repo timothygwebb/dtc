@@ -115,7 +115,7 @@ cd /usr/share
 
 Install the desired package or packages from the list above. For example:
 
-dpkg -i dtc-common_0.34.5-1_all.deb
+dpkg -i --force all dtc*.deb
 
 If you install `dtc-common`, run the installer afterward:
 
