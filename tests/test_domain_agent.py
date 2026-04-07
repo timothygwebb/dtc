@@ -28,7 +28,8 @@ class TestListDomains:
     def test_returns_domain_list(self, agent: DomainAgent, mock_client: MagicMock) -> None:
         mock_client.get_domains.return_value = [{"name": "example.com", "status": "active"}]
         result = agent.list_domains()
-        assert result == [{"name": "example.com", "status": "active"}]
+        assert result["ok"] is True
+        assert result["domains"] == [{"name": "example.com", "status": "active"}]
         mock_client.get_domains.assert_called_once()
 
     def test_returns_fallback_on_error(self, agent: DomainAgent, mock_client: MagicMock) -> None:

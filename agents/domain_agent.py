@@ -9,7 +9,7 @@ LLM tool-calling can auto-generate accurate schemas.
 
 from __future__ import annotations
 
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, Optional
 
 from core.dtc_client import DTCClient
 
@@ -30,16 +30,18 @@ class DomainAgent:
     # Public agent interface
     # ------------------------------------------------------------------
 
-    def list_domains(self) -> List[Dict[str, Any]]:
+    def list_domains(self) -> Dict[str, Any]:
         """List all domains managed by the DTC instance.
 
         Returns
         -------
-        list[dict]
-            Domain records, each containing at least ``name`` and ``status``.
+        dict
+            ``{"ok": True, "domains": [...]}`` on success, or
+            ``{"ok": False, "operation": ..., "error": ...}`` on failure.
         """
         try:
-            return self._client.get_domains()
+            domains = self._client.get_domains()
+            return {"ok": True, "domains": domains}
         except Exception as exc:
             return self._fallback_error("list_domains", exc)
 

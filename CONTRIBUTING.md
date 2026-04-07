@@ -22,7 +22,7 @@ Thank you for your interest in contributing to **Domain Technologie Control (DTC
    git push origin feature/my-improvement
    ```
 
-4. Open a pull request against the `master` branch.
+4. Open a pull request against the `main` branch.
 
 ## Code Style
 

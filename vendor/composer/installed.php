@@ -3,7 +3,7 @@
         'name' => 'timothygwebb/dtc',
         'pretty_version' => 'dev-copilot/evaluate-agentic-ai-readiness',
         'version' => 'dev-copilot/evaluate-agentic-ai-readiness',
-        'reference' => '0c08f33270c08dd463025564d9767c0da2fefd51',
+        'reference' => 'e3c41d5beb81fab757992469714f363ab6fd0130',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -85,7 +85,7 @@
         'timothygwebb/dtc' => array(
             'pretty_version' => 'dev-copilot/evaluate-agentic-ai-readiness',
             'version' => 'dev-copilot/evaluate-agentic-ai-readiness',
-            'reference' => '0c08f33270c08dd463025564d9767c0da2fefd51',
+            'reference' => 'e3c41d5beb81fab757992469714f363ab6fd0130',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

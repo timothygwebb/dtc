@@ -111,15 +111,19 @@ class DTCClient:
         bool
             ``True`` if deletion was successful.
         """
-        response = self._session.delete(
-            f"{self.base_url}/api/domains/{domain}",
-            timeout=self.timeout,
-        )
         try:
+            response = self._session.delete(
+                f"{self.base_url}/api/domains/{domain}",
+                timeout=self.timeout,
+            )
             response.raise_for_status()
         except requests.HTTPError as exc:
             raise requests.HTTPError(
                 f"Failed to delete domain '{domain}': {exc}"
+            ) from exc
+        except requests.ConnectionError as exc:
+            raise requests.ConnectionError(
+                f"Cannot connect to DTC at {self.base_url}: {exc}"
             ) from exc
         return True
 

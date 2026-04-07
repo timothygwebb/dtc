@@ -34,12 +34,15 @@ def _agent_instance(monkeypatch_fixture: pytest.MonkeyPatch) -> MagicMock:
 
 class TestCLIDomainsListCommand:
     def test_exits_zero_on_success(self, capsys: pytest.CaptureFixture) -> None:
-        cli.DomainAgent.return_value.list_domains.return_value = [{"name": "a.com"}]
+        cli.DomainAgent.return_value.list_domains.return_value = {
+            "ok": True,
+            "domains": [{"name": "a.com"}],
+        }
         rc = cli.run(["--base-url", "http://x", "domains", "list"])
         assert rc == 0
         out = capsys.readouterr().out
         data = json.loads(out)
-        assert data[0]["name"] == "a.com"
+        assert data["domains"][0]["name"] == "a.com"
 
     def test_exits_one_on_error_payload(self, capsys: pytest.CaptureFixture) -> None:
         cli.DomainAgent.return_value.list_domains.return_value = {

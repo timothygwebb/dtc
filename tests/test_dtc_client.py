@@ -107,3 +107,10 @@ class TestDeleteDomain:
         with patch.object(client._session, "delete", return_value=mock_response):
             with pytest.raises(requests.HTTPError):
                 client.delete_domain("forbidden.com")
+
+    def test_raises_connection_error(self, client: DTCClient) -> None:
+        with patch.object(
+            client._session, "delete", side_effect=requests.ConnectionError("refused")
+        ):
+            with pytest.raises(requests.ConnectionError):
+                client.delete_domain("unreachable.com")
